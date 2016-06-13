@@ -1,0 +1,27 @@
+{
+  "name": "object-cache",
+  "version": "1.0.0",
+  "description": "Object Cache",
+  "main": "./lib/object-cache.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha ./test/test-object-cache.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PavelNovotny/object-cache.git"
+  },
+  "keywords": [
+    "object-cache",
+    "bgz-reader",
+    "hash-reader"
+  ],
+  "author": "Pavel Novotny",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PavelNovotny/object-cache/issues"
+  },
+  "homepage": "https://github.com/PavelNovotny/object-cache#readme"
+}
