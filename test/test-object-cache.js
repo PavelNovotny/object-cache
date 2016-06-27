@@ -19,7 +19,7 @@ describe('objectCacheTest', function() {
                 });
             }
             setTimeout(function () {for (var i = 0; i < 100; i++) {
-                objectCache.getObject("object1", createObjectOK,[], 200, function (err, object) {
+                objectCache.getObject("object1", createObjectOK,{param1:"param"}, 200, function (err, object) {
                     log.info("getting object '"+ object +"'");
                 });
             }}, 300);
