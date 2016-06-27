@@ -14,17 +14,17 @@ describe('objectCacheTest', function() {
         it('should store to the cache, should create waitingCallbacks', function(done) {
             objectCache.init({ttl:1500, checkperiod:100});
             for (var i = 0; i < 100; i++) {
-                objectCache.getObject("object1", createObjectOK, 500, function (err, object) {
+                objectCache.getObject("object1", createObjectOK,["param1",0,"xxxx"], 500, function (err, object) {
                     log.info("getting object '"+ object +"'");
                 });
             }
             setTimeout(function () {for (var i = 0; i < 100; i++) {
-                objectCache.getObject("object1", createObjectOK, 200, function (err, object) {
+                objectCache.getObject("object1", createObjectOK,[], 200, function (err, object) {
                     log.info("getting object '"+ object +"'");
                 });
             }}, 300);
             setTimeout(function () {for (var i = 0; i < 100; i++) {
-                objectCache.getObject("object1", createObjectOK, 200, function (err, object) {
+                objectCache.getObject("object1", createObjectOK, [], 200, function (err, object) {
                     log.info("getting object '"+ object +"'");
                 });
             }}, 1000);
@@ -40,14 +40,14 @@ describe('objectCacheTest', function() {
 
 });
 
-function createObjectOK(callback) {
+function createObjectOK(params, callback) {
     setTimeout(function () {
         log.info("creating OK object");
         callback(null, "OK object");
     }, 150);
 }
 
-function createObjectNOK(callback) {
+function createObjectNOK(params, callback) {
     setTimeout(function () {
         log.info("creating NOK object");
         callback("Error creating object", "NOK object created");
